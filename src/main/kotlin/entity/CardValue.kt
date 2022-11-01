@@ -1,9 +1,8 @@
 package entity
-
 import java.util.*
 
 /**
- * Enum to distinguish between the 13 possible values in a french-suited card game:
+ * Enum to distinguish between the 13 possible values in a French-suited card game:
  * 2-10, Jack, Queen, King, and Ace.
  *
  * The values are ordered according to their most common ordering:
@@ -27,7 +26,7 @@ enum class CardValue {
     ;
 
     /**
-     * provide a single character to represent this value.
+     * Provides a single character to represent this value.
      * Returns one of: 2/3/4/5/6/7/8/9/10/J/Q/K/A
      */
     override fun toString() =
@@ -47,19 +46,19 @@ enum class CardValue {
             ACE -> "A"
         }
 
-
     companion object {
-
         /**
-         * A set of values for a reduced set of 4x8=32 cards (starting with the 7)
+         * Returns a set of values for a reduced set of 4x8=32 cards (starting with the 7)
          */
-        fun shortDeck(): Set<CardValue> {
-            return EnumSet.of(ACE, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING)
+        fun getAllValuesReduced(): Set<CardValue> {
+            return EnumSet.of(SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE)
         }
 
+        /**
+         * Returns a set of values for a full set of 4x13=52 cards
+         */
+        fun getAllValues(): Set<CardValue> {
+            return EnumSet.of(TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE)
+        }
     }
-
-
-
-
 }
