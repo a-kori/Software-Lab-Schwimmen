@@ -1,6 +1,5 @@
 package entity
 import kotlin.test.*
-import entity.Game
 
 class EntityLayerTests {
     private var game: Game? = null
@@ -92,7 +91,6 @@ class EntityLayerTests {
      */
     private fun checkIfOpenCardsInitCorrect() {
         assert(game!!.openCards.size == 3)
-
         for (card in game!!.openCards) {
             assertNull(card)
         }
@@ -105,16 +103,8 @@ class EntityLayerTests {
      */
     private fun checkIfUnusedCardsInitCorrect() {
         assert(game!!.unusedCards.size == 32)
-        println("unusedCards.size == 32")
-
-        var availableCards = arrayListOf<Card>()
-        for ( suit in CardSuit.getAllSuits() ) {
-            for ( value in CardValue.getAllValuesReduced() ) {
-                availableCards.add(Card(suit, value))
-            }
-        }
-        assertEquals(availableCards, game!!.unusedCards)
-        println("all 32 combinations included in unusedCards")
+        assertEquals(game!!.unusedCards, game!!.unusedCards.distinct())
+        println("All 32 possible cards included in unusedCards without duplicates")
     }
 
     /**
@@ -123,14 +113,14 @@ class EntityLayerTests {
      * correctly initialized attributes.
      */
     private fun checkIfPlayersInitCorrect() {
-        var actualPlayers = ArrayList<String>()
+        var actualPlayerNames = ArrayList<String>()
         for (player in game!!.players) {
-            actualPlayers.add(player.name)
+            actualPlayerNames.add(player.name)
             checkPlayerAttributes(player)
         }
 
-        assertEquals(playerNames, actualPlayers)
-        println("all ${actualPlayers.size} players included in correct order")
+        assertEquals(playerNames, actualPlayerNames)
+        println("all ${actualPlayerNames.size} players included in correct order")
     }
 
     /**
@@ -145,5 +135,4 @@ class EntityLayerTests {
         }
         println("All attributes of player ${player.name} are initialized correctly.")
     }
-
 }
