@@ -119,7 +119,7 @@ class EntityLayerTests {
 
     /**
      * Test if [players] is set to a list of new players with
-     * names from playerNames in the correct order and with
+     * names from [playerNames] in the correct order and with
      * correctly initialized attributes.
      */
     private fun checkIfPlayersInitCorrect() {
