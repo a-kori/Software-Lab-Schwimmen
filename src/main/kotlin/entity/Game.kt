@@ -14,8 +14,6 @@ data class Game(private val playerNames: ArrayList<String>){
      * The initial value is always zero.
      */
     var passCounter: Int = 0
-        private set
-    fun incrementPassCounter() { passCounter++ }
 
     /**
      * The three open cards on the table that players can
