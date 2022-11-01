@@ -1,9 +1,10 @@
 package entity
 import kotlin.test.*
+import entity.Game
 
 class EntityLayerTests {
     private var game: Game? = null
-    private val playerNames = arrayListOf("John, Sansa, Arya, Brandon")
+    private val playerNames = arrayListOf("John", "Sansa", "Arya", "Brandon")
 
     /**
      * Full test of the game object initialization
@@ -25,7 +26,7 @@ class EntityLayerTests {
         // Test initialization with too many players
         initializeTooManyPlayers()
         // Test initialization with an acceptable number of players
-        initializeNewGame()
+        initializeCorrectGame()
     }
 
     /**
@@ -60,7 +61,7 @@ class EntityLayerTests {
      * with an exceeding number of players
      */
     private fun initializeTooManyPlayers() {
-        val tooManyPlayers = arrayListOf("John, Sansa, Arya, Brandon, Katelyn")
+        val tooManyPlayers = arrayListOf("John", "Sansa", "Arya", "Brandon", "Katelyn")
         assertFails { game = Game(tooManyPlayers) }
         println("Initialization with tooManyPlayers successfully failed.")
 
@@ -72,7 +73,7 @@ class EntityLayerTests {
      * Test of the game object initialization
      * with an acceptable number of players
      */
-    private fun initializeNewGame() {
+    private fun initializeCorrectGame() {
         game = Game(playerNames)
         assertNotNull(game)
         println("game successfully initialized with playerNames.")
