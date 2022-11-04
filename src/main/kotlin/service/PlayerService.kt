@@ -81,27 +81,17 @@ class PlayerService (private val rs : RootService) : AbstractRefreshingService()
      * player's current score.
      */
     private fun updateScore (player : Player){
-        // If all three cards have different suits
-        if (player.cards == player.cards.distinctBy { card -> card.suit }) {
-
-            // and the same values, set the score to 30.5.
-            if (player.cards.distinctBy { card -> card.value }.size == 1)
-                player.score = 30.5
-
-            // Else set the score to the largest value among the cards.
-            else {
-                player.score = player.cards.maxOf{ card -> card.value.numeric() }.toDouble()
-            }
+        // If all three cards have different suits and the same values, set the score to 30.5.
+        if (player.cards.distinctBy{ card -> card.value }.size == 1) {
+            player.score = 30.5
             return
         }
-
-        // If there are at least 2 cards with the same suit,
-        // add up the values of cards with the same suit and
-        // set the score to the largest sum.
+        // Else add up the values of cards with the same suit to
+        // separate sums and set the score to the largest sum.
         val sums = IntArray(4) { 0 }
         for (card in player.cards) {
             sums[card.suit.ordinal] += card.value.numeric()
         }
-        player.score = sums.maxOrNull()!!.toDouble()!!
+        player.score = sums.maxOrNull()!!.toDouble()
     }
 }
