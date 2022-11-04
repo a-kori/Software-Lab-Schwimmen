@@ -27,8 +27,8 @@ data class Player(private val player_name: String) {
 
     /**
      * The three cards that the player currently has on the hand, that
-     * determine his current score. The initial value is an array of nulls
-     * that will be overwritten with [Card] objects at the start of the game.
+     * determine his current score. The initial value is an array of
+     * default cards that will be overwritten at the start of the game.
      */
-    var cards = arrayOfNulls<Card>(3)
+    var cards = Array<Card>(3) { _ -> Card() }
 }

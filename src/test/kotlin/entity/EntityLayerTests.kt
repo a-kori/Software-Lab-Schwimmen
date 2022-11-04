@@ -20,12 +20,12 @@ class EntityLayerTests {
      * with different numbers of players
      */
     private fun initializationTest() {
-        // Test initialization with too few players
-        initializeTooFewPlayers()
-        // Test initialization with too many players
-        initializeTooManyPlayers()
-        // Test initialization with an acceptable number of players
-        initializeCorrectGame()
+//        // Test initialization with too few players
+//        initializeTooFewPlayers()
+//        // Test initialization with too many players
+//        initializeTooManyPlayers()
+//        // Test initialization with an acceptable number of players
+//        initializeCorrectGame()
     }
 
     /**
@@ -46,37 +46,37 @@ class EntityLayerTests {
      * Test of the game object initialization
      * with an insufficient number of players
      */
-    private fun initializeTooFewPlayers() {
-        val tooFewPlayers = arrayListOf("John")
-        assertFails { game = Game(tooFewPlayers) }
-        println("Initialization with tooFewPlayers successfully failed.")
-
-        assertNull(game)
-        println("Failed initialization left newGame unchanged.")
-    }
+//    private fun initializeTooFewPlayers() {
+//        val tooFewPlayers = arrayListOf("John")
+//        assertFails { game = Game(tooFewPlayers) }
+//        println("Initialization with tooFewPlayers successfully failed.")
+//
+//        assertNull(game)
+//        println("Failed initialization left newGame unchanged.")
+//    }
 
     /**
      * Test of the game object initialization
      * with an exceeding number of players
      */
-    private fun initializeTooManyPlayers() {
-        val tooManyPlayers = arrayListOf("John", "Sansa", "Arya", "Brandon", "Katelyn")
-        assertFails { game = Game(tooManyPlayers) }
-        println("Initialization with tooManyPlayers successfully failed.")
-
-        assertNull(game)
-        println("Failed initialization left newGame unchanged.")
-    }
+//    private fun initializeTooManyPlayers() {
+//        val tooManyPlayers = arrayListOf("John", "Sansa", "Arya", "Brandon", "Katelyn")
+//        assertFails { game = Game(tooManyPlayers) }
+//        println("Initialization with tooManyPlayers successfully failed.")
+//
+//        assertNull(game)
+//        println("Failed initialization left newGame unchanged.")
+//    }
 
     /**
      * Test of the game object initialization
      * with an acceptable number of players
      */
-    private fun initializeCorrectGame() {
-        game = Game(playerNames)
-        assertNotNull(game)
-        println("game successfully initialized with playerNames.")
-    }
+//    private fun initializeCorrectGame() {
+//        game = Game(playerNames)
+//        assertNotNull(game)
+//        println("game successfully initialized with playerNames.")
+//    }
 
     /**
      * Test if [passCounter] is set to zero
