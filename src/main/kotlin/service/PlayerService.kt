@@ -8,7 +8,7 @@ import entity.Player
 class PlayerService (private val rs : RootService) : AbstractRefreshingService() {
 
     /**
-     * Marks down that the player [hasKnocked]
+     * Marks down that the player has knocked
      * and moves to the next player.
      */
     fun knock (player : Player) {
@@ -46,8 +46,12 @@ class PlayerService (private val rs : RootService) : AbstractRefreshingService()
         val game = rs.currentGame
 
         val temp = game.openCards.clone()
-        game.openCards = player.cards.clone()
-        player.cards = temp
+        for(i in game.openCards.indices) {
+            game.openCards[i] = player.cards[i]
+        }
+        for(i in player.cards.indices) {
+            player.cards[i] = temp[i]
+        }
 
         updateScore(player)
         game.passCounter = 0

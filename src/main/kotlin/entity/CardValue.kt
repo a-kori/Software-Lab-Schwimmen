@@ -76,7 +76,7 @@ enum class CardValue {
         /**
          * Returns a set of values for a full set of 4x13=52 cards
          */
-        fun getAllValues(): Set<CardValue> {
+        fun getAllValuesFull(): Set<CardValue> {
             return EnumSet.of(TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE)
         }
     }

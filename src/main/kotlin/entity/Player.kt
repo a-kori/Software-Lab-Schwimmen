@@ -2,19 +2,16 @@ package entity
 
 /**
  * Data class representing a game's player with a given, immutable name,
- * a variable score,
+ * a variable score, an indicator, if the player has knocked, and a stack
+ * of three cards the player has on the hand.
  */
-data class Player(private val player_name: String) {
-    /**
-     * The player's name given to the constructor.
-     */
-    val name: String = player_name
+data class Player(val name: String) {
 
     /**
      * Numerical value used to compare the player's
      * performance in the game with that of others.
      * Based on the suits and values of the player's
-     * current cards (see [PlayerService].updateScore()
+     * current cards (see PlayerService.updateScore()
      * for more). The initial value is always zero.
      */
     var score: Double = 0.0
@@ -30,5 +27,5 @@ data class Player(private val player_name: String) {
      * determine his current score. The initial value is an array of
      * default cards that will be overwritten at the start of the game.
      */
-    var cards = Array<Card>(3) { _ -> Card() }
+    val cards = Array(3) { _ -> Card() }
 }
