@@ -3,14 +3,14 @@ import kotlin.test.*
 
 /**
  * A test class containing tests for the
- * initialization of a Game object, its
+ * initialization of a [Game] object, its
  * available setters and the overridden
  * methods equals() and hashCode().
  */
 class GameTest {
 
     /**
-     * Tests if the constructor of the Game class
+     * Tests if the constructor of the [Game] class
      * initializes an object with a copy of the
      * passed players array and expected attribute values
      */
@@ -19,13 +19,7 @@ class GameTest {
         val players = arrayOf(Player("John"), Player("Sansa"), Player("Arya"))
         val game = Game(players)
 
-        val allCards: ArrayList<Card> = arrayListOf()
-        for ( suit in CardSuit.getAllSuits() ) {
-            for ( value in CardValue.getAllValuesReduced() ) {
-                allCards.add( Card(suit, value) )
-            }
-        }
-        assert(game.unusedCards == allCards)
+        assert(game.unusedCards == arrayListOf<Card>())
         assert(game.openCards.contentEquals(Array(3) { _ -> Card() }))
         assert(game.players.contentEquals(players))
         assert(game.players !== players)
@@ -36,7 +30,7 @@ class GameTest {
 
     /**
      * Tests if the available setters of the
-     * Game class assign the passed values
+     * [Game] class assign the passed values
      * to the attributes correctly
      */
     @Test
@@ -64,33 +58,47 @@ class GameTest {
         assert(game1 != gameNull)
         assert(game1 == game1)
         assert(!game1.equals("game1"))
+        assertEquals(game1, game2)
 
+        /**
+         * Tests equality if one object's
+         * unused cards are changed
+         */
         fun changeUnusedCards(game : Game) {
-            game.unusedCards.remove(Card(CardSuit.CLUBS, CardValue.EIGHT))
-            game.unusedCards.add(Card(CardSuit.CLUBS, CardValue.SEVEN))
+            game.unusedCards.add(Card())
             assert(game1 != game)
         }
         changeUnusedCards(game2.copy())
 
+        /**
+         * Tests equality if one object's
+         * open cards are changed
+         */
         fun changeOpenCards(game : Game) {
             game.openCards[0] = Card(CardSuit.CLUBS, CardValue.EIGHT)
             assert(game1 != game)
         }
         changeOpenCards(game2.copy())
 
+        /**
+         * Tests equality if one object's
+         * players are changed
+         */
         fun changePlayers(game : Game) {
             game.players[0] = Player("Mary")
             assert(game1 != game)
         }
         changePlayers(game2.copy())
 
+        /**
+         * Tests equality if one object's
+         * pass counter is changed
+         */
         fun changePassCounter(game : Game) {
             game.passCounter += 1
             assert(game1 != game)
         }
         changePassCounter(game2.copy())
-
-        assertEquals(game1, game2)
 
         println("gameEqualsTest() : SUCCESS")
     }

@@ -28,4 +28,5 @@ data class Player(val name: String) {
      * default cards that will be overwritten at the start of the game.
      */
     val cards = Array(3) { _ -> Card() }
+
 }

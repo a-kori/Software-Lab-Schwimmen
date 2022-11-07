@@ -5,7 +5,7 @@ import entity.Player
  * A service class, used to describe the
  * logic of processing players' actions.
 */
-class PlayerService (private val rs : RootService) : AbstractRefreshingService() {
+class PlayerService (private val rs : RootService) {
 
     /**
      * Marks down that the player has knocked
@@ -84,7 +84,7 @@ class PlayerService (private val rs : RootService) : AbstractRefreshingService()
      * Recalculates the passed
      * player's current score.
      */
-    private fun updateScore (player : Player){
+    fun updateScore (player : Player){
         // If all three cards have different suits and the same values, set the score to 30.5.
         if (player.cards.distinctBy{ card -> card.value }.size == 1) {
             player.score = 30.5
@@ -98,4 +98,26 @@ class PlayerService (private val rs : RootService) : AbstractRefreshingService()
         }
         player.score = sums.maxOrNull()!!.toDouble()
     }
+
+    /**
+     * Checks if the current [PlayerService] object is equal to the passed
+     * [other] object.
+     */
+    override fun equals(other: Any?): Boolean {
+        if (other == null) return false
+        if (this === other) return true
+        if (javaClass != other.javaClass) return false
+
+        other as PlayerService
+
+        return rs === other.rs
+    }
+
+    /**
+     * Returns the hash code of the current [PlayerService] object.
+     */
+    override fun hashCode(): Int {
+        return 31 * rs.hashCode()
+    }
+
 }

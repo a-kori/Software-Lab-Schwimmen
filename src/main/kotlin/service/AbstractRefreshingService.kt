@@ -7,10 +7,11 @@ import view.Refreshable
  * methods, applicable to all the objects together.
  */
 abstract class AbstractRefreshingService {
+
     /**
      * A list of refreshable objects used in the game.
      */
-    private var refreshables : ArrayList<Refreshable> = arrayListOf()
+    protected val refreshables : ArrayList<Refreshable> = arrayListOf()
 
     /**
      * Adds a new refreshable object to [refreshables]
@@ -27,4 +28,5 @@ abstract class AbstractRefreshingService {
             refreshable.method()
         }
     }
+
 }

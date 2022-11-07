@@ -3,7 +3,7 @@ import kotlin.test.*
 
 /**
  * A test class containing tests for
- * the methods of CardValue class
+ * the methods of [CardValue] class
  */
 class CardValueTest {
 

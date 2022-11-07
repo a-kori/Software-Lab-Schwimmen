@@ -3,13 +3,13 @@ import kotlin.test.*
 
 /**
  * A test class containing tests for
- * the initialization of a Player object,
+ * the initialization of a [Player] object,
  * as well as its available setters.
  */
 class PlayerTest {
 
     /**
-     * Tests if the constructor of the Player
+     * Tests if the constructor of the [Player]
      * class initializes an object with the
      * passed name and expected attribute values
      */
@@ -28,7 +28,7 @@ class PlayerTest {
 
     /**
      * Tests if the available setters of the
-     * Player class assign passed values to
+     * [Player] class assign passed values to
      * the attributes correctly
      */
     @Test

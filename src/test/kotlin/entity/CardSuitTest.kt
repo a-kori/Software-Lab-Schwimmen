@@ -3,7 +3,7 @@ import kotlin.test.*
 
 /**
  * A test class containing tests for
- * the methods of CardSuit class
+ * the methods of [CardSuit] class
  */
 class CardSuitTest {
 

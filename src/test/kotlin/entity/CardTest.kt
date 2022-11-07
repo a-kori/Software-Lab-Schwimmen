@@ -3,13 +3,13 @@ import kotlin.test.*
 
 /**
  * A test class containing tests for
- * the initialization of a Card object
+ * the initialization of a [Card] object
  */
 class CardTest {
 
     /**
      * Tests if the primary constructor of
-     * the Card class initializes an object
+     * the [Card] class initializes an object
      * with the passed suit and value
      */
     @Test
@@ -24,7 +24,7 @@ class CardTest {
 
     /**
      * Tests if the secondary constructor of
-     * the Card class initializes an object
+     * the [Card] class initializes an object
      * with the clubs suit and the value 7,
      * as per default
      */

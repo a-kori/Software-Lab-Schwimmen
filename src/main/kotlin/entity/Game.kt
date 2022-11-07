@@ -12,14 +12,7 @@ data class Game(private val newPlayers : Array<Player>){
      * the [openCards] stack.
      * [unusedCards] can also be used to refill [openCards].
      */
-    val unusedCards: ArrayList<Card> = arrayListOf()
-    init {
-        for ( suit in CardSuit.getAllSuits() ) {
-            for ( value in CardValue.getAllValuesReduced() ) {
-                unusedCards.add( Card(suit, value) )
-            }
-        }
-    }
+    val unusedCards = arrayListOf<Card>()
 
     /**
      * The three open cards on the table that players can
@@ -27,7 +20,7 @@ data class Game(private val newPlayers : Array<Player>){
      * The initial value is an array of default cards that will be
      * overwritten at the start of the game.
      */
-    val openCards = Array<Card>(3) { _ -> Card() }
+    val openCards = Array(3) { _ -> Card() }
 
     /**
      * An immutable array of 2 to 4 players, participating in
@@ -35,7 +28,7 @@ data class Game(private val newPlayers : Array<Player>){
      * At the end of the game, the array will be sorted in the
      * order that the players will appear on the winners board in.
      */
-    val players: Array<Player> = newPlayers.clone()
+    val players = newPlayers.clone()
 
     /**
      * Used to count how many players in a row have 'passed',
@@ -46,7 +39,7 @@ data class Game(private val newPlayers : Array<Player>){
      * finished (see GameService for more).
      * The initial value is always zero.
      */
-    var passCounter: Int = 0
+    var passCounter = 0
 
     /**
      * Checks if the current [Game] object is equal to the passed
@@ -78,4 +71,5 @@ data class Game(private val newPlayers : Array<Player>){
         result = 31 * result + passCounter
         return result
     }
+
 }
