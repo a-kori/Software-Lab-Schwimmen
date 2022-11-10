@@ -6,7 +6,7 @@ import entity.Game
  * the current [playerIndex], as well as the methods
  * from [gameService] and [playerService] classes.
  */
-class RootService () {
+class RootService {
     /**
      * The current game, being played. The initial value
      * is a new game with an empty list of players, which
