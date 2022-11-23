@@ -58,9 +58,6 @@ class GameService (private val rs : RootService) : AbstractRefreshingService() {
         }
         game.unusedCards.shuffle()
 
-        if (game.unusedCards.size < game.openCards.size + game.players.size * game.players[0].cards.size)
-            throw NoCardsLeftException("There are not enough cards in the draw pile to start the game!")
-
         for (player in game.players) {
             for(i in 0 until player.cards.size) {
                 player.cards[i] = game.unusedCards[0]
