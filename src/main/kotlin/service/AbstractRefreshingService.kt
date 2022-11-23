@@ -21,6 +21,13 @@ abstract class AbstractRefreshingService {
     }
 
     /**
+     * Replaces the refreshable at [index] with a [newRefreshable]
+     */
+    fun replaceRefreshableAt(index : Int, newRefreshable : Refreshable) {
+        refreshables[index] = newRefreshable
+    }
+
+    /**
      * Executes the passed [method] on all [refreshables]
      */
     fun onAllRefreshables(method : Refreshable.() -> Unit) {
