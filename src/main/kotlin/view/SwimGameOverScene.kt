@@ -19,17 +19,22 @@ class SwimGameOverScene(private val rootService: RootService) : MenuScene(400, 1
     private val headlineLabel = Label(
         width = 300, height = 50, posX = 50, posY = 50,
         text = "Game Over!",
-        font = Font(size = 22)
+        font = Font(size = 30, fontWeight = Font.FontWeight.BOLD)
     )
 
-    private val p1Score = Label(width = 300, height = 35, posX = 50, posY = 125)
-    private val p2Score = Label(width = 300, height = 35, posX = 50, posY = 170)
-    private val p3Score = Label(width = 300, height = 35, posX = 50, posY = 215)
-    private val p4Score = Label(width = 300, height = 35, posX = 50, posY = 260)
+    private val p1Score = Label(width = 300, height = 35, posX = 55, posY = 125,
+        font = Font(fontWeight = Font.FontWeight.BOLD))
+    private val p2Score = Label(width = 300, height = 35, posX = 55, posY = 170,
+        font = Font(fontWeight = Font.FontWeight.BOLD))
+    private val p3Score = Label(width = 300, height = 35, posX = 55, posY = 215,
+        font = Font(fontWeight = Font.FontWeight.BOLD))
+    private val p4Score = Label(width = 300, height = 35, posX = 55, posY = 260,
+        font = Font(fontWeight = Font.FontWeight.BOLD))
 
-    private val gameResult = Label(width = 300, height = 35, posX = 50, posY = 305)
+    private val gameResult = Label(width = 300, height = 35, posX = 55, posY = 305,
+        font = Font(size = 18, fontWeight = Font.FontWeight.BOLD))
 
-    val restartButton = Button(width = 90, height = 35, posX = 55, posY = 375, text = "Restart").apply {
+    val restartButton = Button(width = 90, height = 35, posX = 65, posY = 375, text = "Restart").apply {
         visual = ColorVisual(Color(136, 221, 136))
         onMouseClicked = {
             val playerNames = mutableListOf<String>()

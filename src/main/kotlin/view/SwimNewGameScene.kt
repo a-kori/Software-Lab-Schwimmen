@@ -22,7 +22,7 @@ class SwimNewGameScene(private val rootService: RootService) : MenuScene(400, 10
         width = 300, height = 50,
         posX = 50, posY = 50,
         text = "New Game",
-        font = Font(size = 22)
+        font = Font(size = 30, fontWeight = Font.FontWeight.BOLD)
     )
 
     // Checks if the user has entered less than
@@ -59,7 +59,8 @@ class SwimNewGameScene(private val rootService: RootService) : MenuScene(400, 10
     private val p1Label = Label(
         width = 100, height = 35,
         posX = 50, posY = 125,
-        text = "Player 1:"
+        text = "Player 1:",
+        font = Font(fontWeight = Font.FontWeight.BOLD)
     )
     // type inference fails here, so explicit  ": TextField" is required
     // see https://discuss.kotlinlang.org/t/unexpected-type-checking-recursive-problem/6203/14
@@ -78,7 +79,8 @@ class SwimNewGameScene(private val rootService: RootService) : MenuScene(400, 10
     private val p2Label = Label(
         width = 100, height = 35,
         posX = 50, posY = 170,
-        text = "Player 2:"
+        text = "Player 2:",
+        font = Font(fontWeight = Font.FontWeight.BOLD)
     )
     private val p2Input: TextField = TextField(
         width = 200, height = 35,
@@ -95,7 +97,8 @@ class SwimNewGameScene(private val rootService: RootService) : MenuScene(400, 10
     private val p3Label = Label(
         width = 100, height = 35,
         posX = 50, posY = 215,
-        text = "Player 3:"
+        text = "Player 3:",
+        font = Font(fontWeight = Font.FontWeight.BOLD)
     )
     private val p3Input: TextField = TextField(
         width = 200, height = 35,
@@ -112,7 +115,8 @@ class SwimNewGameScene(private val rootService: RootService) : MenuScene(400, 10
     private val p4Label = Label(
         width = 100, height = 35,
         posX = 50, posY = 260,
-        text = "Player 4:"
+        text = "Player 4:",
+        font = Font(fontWeight = Font.FontWeight.BOLD)
     )
     private val p4Input: TextField = TextField(
         width = 200, height = 35,

@@ -16,6 +16,7 @@ class GameService (private val rs : RootService) : AbstractRefreshingService() {
      * players and the card stack on the table.
      */
     fun startGame (playerNames : List<String>) {
+        rs.playerIndex = 0
         initializePlayers(playerNames)
         distributeCards()
 

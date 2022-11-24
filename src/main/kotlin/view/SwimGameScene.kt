@@ -34,7 +34,7 @@ class SwimGameScene(private val rootService: RootService) : BoardGameScene(1920,
 
     private var score = Label(
         text = "Current score: ${rootService.currentGame.players[0].score}",
-        font = Font(size = 22),
+        font = Font(size = 22, color = Color.WHITE, fontWeight = Font.FontWeight.SEMI_BOLD),
         width = 300,
         height = 35,
         posX = 355,
@@ -63,7 +63,7 @@ class SwimGameScene(private val rootService: RootService) : BoardGameScene(1920,
         posX = middleCard1.posX + 130, posY = middleCard1.posY
     )
     private val prompt = Label(
-        font = Font(size = 20),
+        font = Font(size = 20, color = Color.WHITE),
         width = 700,
         height = 35,
         posX = 560,
@@ -75,8 +75,10 @@ class SwimGameScene(private val rootService: RootService) : BoardGameScene(1920,
         font = Font(size = 20), text = "Pass").apply {
         visual = ColorVisual(Color(136, 221, 136))
         onMouseClicked = {
-            bottomPlayer.log.text = "has passed."
-            rootService.playerService.pass()
+            rootService.let { rs ->
+                bottomPlayer.log.text = "has passed."
+                rs.playerService.pass()
+            }
         }
         isDisabled = false
     }
@@ -183,8 +185,8 @@ class SwimGameScene(private val rootService: RootService) : BoardGameScene(1920,
         button.visual = ColorVisual(Color(136, 221, 136))
     }
 
-    private fun refreshMiddleCards (rs : RootService) {
-        val openCards = rs.currentGame.openCards
+    private fun refreshMiddleCards () {
+        val openCards = rootService.currentGame.openCards
 
         middleCard0.isVisible = false
         middleCard0 = CardView(
@@ -213,6 +215,15 @@ class SwimGameScene(private val rootService: RootService) : BoardGameScene(1920,
         middleCard2.flip()
 
         addComponents(middleCard0, middleCard1, middleCard2)
+    }
+
+    private fun refreshPlayerCards (playerIndex : Int, logText : String) {
+        bottomPlayer.hide()
+        bottomPlayer = PlayerView(rootService.currentGame.players[playerIndex], "bottom", logText)
+        addComponents(
+            bottomPlayer.name, bottomPlayer.log, bottomPlayer.card0, bottomPlayer.card1, bottomPlayer.card2
+        )
+        score.text = "Current score: ${rootService.currentGame.players[playerIndex].score}"
     }
 
     private fun movePlayers (rs : RootService) {
@@ -254,13 +265,8 @@ class SwimGameScene(private val rootService: RootService) : BoardGameScene(1920,
                    else rootService.playerIndex - 1
 
         // Refresh current player's cards and middle cards only
-        bottomPlayer.hide()
-        bottomPlayer = PlayerView(rootService.currentGame.players[prev], "bottom", bottomPlayer.log.text)
-        addComponents(
-            bottomPlayer.name, bottomPlayer.log, bottomPlayer.card0, bottomPlayer.card1, bottomPlayer.card2
-        )
-        score.text = "Current score: ${rootService.currentGame.players[prev].score}"
-        refreshMiddleCards(rootService)
+        refreshPlayerCards(prev, bottomPlayer.log.text)
+        refreshMiddleCards()
 
         turnOffButton(passButton)
         turnOffButton(knockButton)
@@ -269,12 +275,12 @@ class SwimGameScene(private val rootService: RootService) : BoardGameScene(1920,
         turnOnButton(continueButton)
     }
 
-    override fun refreshAfterGameOver() {
-        refreshAfterGameTurn()
-        turnOffButton(continueButton)
-
-        //Thread.sleep(3000)
-    }
+//    override fun refreshAfterGameOver() {
+//        refreshAfterGameTurn()
+//        turnOffButton(continueButton)
+//
+//        Thread.sleep(3000)
+//    }
 
     init {
         middleCard0.isDisabled = true
@@ -290,8 +296,8 @@ class SwimGameScene(private val rootService: RootService) : BoardGameScene(1920,
         if (rootService.currentGame.players.size == 4)
             rightPlayer = PlayerView(rootService.currentGame.players[3], "right")
 
-        // dark green for "Casino table" flair
-        background = ColorVisual(108, 168, 59)
+        // Dark green for "Casino table" flair
+        background = ColorVisual(0, 102, 0)
 
         addComponents(
             bottomPlayer.name, bottomPlayer.log, bottomPlayer.card0, bottomPlayer.card1, bottomPlayer.card2,

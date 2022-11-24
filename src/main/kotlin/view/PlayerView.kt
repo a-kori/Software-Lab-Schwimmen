@@ -65,7 +65,7 @@ data class PlayerView(private val player: Player, private val where: String, pri
 
     val name = Label(
         text = player.name,
-        font = Font(size = 22),
+        font = Font(size = 22, color = java.awt.Color.WHITE, fontWeight = Font.FontWeight.BOLD),
         width = 300,
         height = 35,
         posX = when (where) {
@@ -80,6 +80,7 @@ data class PlayerView(private val player: Player, private val where: String, pri
 
     val log = Label(
         text = logString,
+        font = Font(color = java.awt.Color.WHITE),
         width = 300,
         height = 35,
         posX = name.posX,
