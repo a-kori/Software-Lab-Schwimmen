@@ -18,9 +18,16 @@ import java.awt.Color
  */
 class SwimNewGameScene(private val rootService: RootService) : MenuScene(400, 1080), Refreshable {
 
-    private val headlineLabel = Label(
+    private val gameNameLabel = Label(
         width = 300, height = 50,
-        posX = 50, posY = 50,
+        posX = 50, posY = 500,
+        text = "Schwimmen",
+        font = Font(size = 50, fontWeight = Font.FontWeight.BOLD, fontStyle = Font.FontStyle.OBLIQUE)
+    )
+
+    private val newGameLabel = Label(
+        width = 300, height = 50,
+        posX = 60, posY = 50,
         text = "New Game",
         font = Font(size = 30, fontWeight = Font.FontWeight.BOLD)
     )
@@ -150,7 +157,7 @@ class SwimNewGameScene(private val rootService: RootService) : MenuScene(400, 10
     init {
         opacity = .5
         addComponents(
-            headlineLabel,
+            newGameLabel, gameNameLabel,
             p1Label, p1Input,
             p2Label, p2Input,
             p3Label, p3Input,

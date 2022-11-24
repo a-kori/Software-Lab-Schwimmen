@@ -17,7 +17,7 @@ import java.awt.Color
 class SwimGameOverScene(private val rootService: RootService) : MenuScene(400, 1080), Refreshable {
 
     private val headlineLabel = Label(
-        width = 300, height = 50, posX = 50, posY = 50,
+        width = 300, height = 50, posX = 55, posY = 50,
         text = "Game Over!",
         font = Font(size = 30, fontWeight = Font.FontWeight.BOLD)
     )
@@ -31,10 +31,10 @@ class SwimGameOverScene(private val rootService: RootService) : MenuScene(400, 1
     private val p4Score = Label(width = 300, height = 35, posX = 55, posY = 260,
         font = Font(fontWeight = Font.FontWeight.BOLD))
 
-    private val gameResult = Label(width = 300, height = 35, posX = 55, posY = 305,
+    private val gameResult = Label(width = 350, height = 35, posX = 30, posY = 305,
         font = Font(size = 18, fontWeight = Font.FontWeight.BOLD))
 
-    val restartButton = Button(width = 90, height = 35, posX = 65, posY = 375, text = "Restart").apply {
+    private val restartButton = Button(width = 90, height = 35, posX = 65, posY = 375, text = "Restart").apply {
         visual = ColorVisual(Color(136, 221, 136))
         onMouseClicked = {
             val playerNames = mutableListOf<String>()
