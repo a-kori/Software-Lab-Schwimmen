@@ -99,6 +99,9 @@ data class PlayerView(private val player: Player, private val where: String, pri
         }
     }
 
+    /**
+     * Hides this PlayerView on the screen.
+     */
     fun hide() {
         name.isVisible = false
         log.isVisible = false

@@ -155,13 +155,11 @@ class SwimGameScene(private val rootService: RootService) : BoardGameScene(1920,
         isDisabled = false
     }
 
-    var continueClicked = false
     private val continueButton = Button(width = 130, height = 50, posX = passButton.posX, posY = swapAllButton.posY + 55,
         font = Font(size = 20), text = "Continue").apply {
         visual = ColorVisual(Color(221,136,136))
         onMouseClicked = {
             rootService.let { rs ->
-                continueClicked = true
                 movePlayers(rs)
 
                 turnOnButton(passButton)

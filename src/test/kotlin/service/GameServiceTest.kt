@@ -11,8 +11,6 @@ import kotlin.test.*
  */
 class GameServiceTest {
 
-    // TODO: add onAllRefreshables call check, where applicable
-
     /**
      * Checks if the distribution of cards to
      * the passed [cards] array was correct
