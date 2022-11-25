@@ -22,5 +22,5 @@ This is one of the two planned projects in the TU Dortmund's Software Lab.
 ## For more information:
 
 * About the Software Lab (in German): https://sopra.cs.tu-dortmund.de/wiki/start
-* About Schwimmen: https://en.wikipedia.org/wiki/Schwimmenr
+* About Schwimmen: https://en.wikipedia.org/wiki/Schwimmen
 * BoardGameWork on GitHub: https://github.com/tudo-aqua/bgw
