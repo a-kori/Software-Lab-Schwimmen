@@ -133,6 +133,10 @@ class SwimGameScene(private val rootService: RootService) : BoardGameScene(1920,
                 turnOffButton(knockButton)
                 turnOffButton(this)
                 turnOffButton(swapAllButton)
+                middleCard0.isDisabled = true
+                middleCard1.isDisabled = true
+                middleCard2.isDisabled = true
+
                 for (card in playerCards) {
                     card.isDisabled = false
                 }
